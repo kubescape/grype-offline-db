@@ -25,7 +25,7 @@ local-run: _init
 	cd out/app && npm i  && npm start
 
 build: local-build
-	pack build $(APP_IMAGE) -p out/app -B paketobuildpacks/builder:base
+	pack build $(APP_IMAGE) -p out/app -B paketobuildpacks/builder-jammy-base:latest
 
 install: build
 	docker push $(APP_IMAGE)
