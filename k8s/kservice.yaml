@@ -9,7 +9,7 @@ spec:
   template:
     spec:
       containers:
-      - image: ghcr.io/alexandreroman/grype-offline-db
+      - image: quay.io/kubescape/grype-offline-db
         envFrom:
         - configMapRef:
             name: db
