@@ -27,8 +27,8 @@ local-run: _init
 build: local-build
 	pack build $(APP_IMAGE) -p out/app -B paketobuildpacks/builder-jammy-base:latest
 
-install: build
-	docker push $(APP_IMAGE)
+install: local-build
+	pack build $(APP_IMAGE) -p out/app -B paketobuildpacks/builder-jammy-base:latest --publish
 	mkdir -p out/bundle
 	cp k8s/*.yaml out/bundle
 	mkdir -p out/bundle/.imgpkg
